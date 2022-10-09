@@ -1,0 +1,49 @@
+# 设置配置范例，开启编辑器的自动补全
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# 提示符
+format = """
+$directory\
+$git_branch\
+$git_status
+$character
+"""
+
+right_format = """
+$username\
+$localip
+"""
+
+# Starship 扫描文件的超时时间（单位：毫秒）。
+scan_timeout = 10
+
+# 在 shell 提示符之间插入空行。
+add_newline = false
+
+[directory]
+style = "blue"
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = ""
+ignore_branches = ["master", "main"]
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+
+
+# right_format
+
+[username]
+style_user = "blue bold"
+style_root = "red bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[localip]
+ssh_only = false
+format = "@[$localipv4](bold green) "
+disabled = false
