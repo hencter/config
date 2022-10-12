@@ -5,14 +5,21 @@
 format = """
 $directory\
 $git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
 $character
 """
 
 right_format = """
-$battery
-$username\
-$localip\
+$nodejs
 """
+
+# 禁用
+# $battery
+# $username\
+# $localip\
 
 # Starship 扫描文件的超时时间（单位：毫秒）。
 scan_timeout = 10
@@ -23,14 +30,37 @@ add_newline = false
 [directory]
 style = "blue"
 
-[git_branch]
-symbol = "🌱 "
-ignore_branches = ["master", "main"]
 
 [character]
 success_symbol = "[>](bold green)"
 error_symbol = "[x](bold red)"
 
+# Git
+
+[git_branch]
+format = '[$symbol$branch]($style)'
+ignore_branches = ["master", "main"]
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+[git_metrics]
+format = '[+$added]($added_style)/[-$deleted]($deleted_style)'
+added_style = "bold blue"
+
+[git_status]
+format = '(\[[$all_status$ahead_behind]($style)\] )'
+up_to_date = "[✓](bold green)" # 远程
+# modified = ""
+# untracked = "" # 有文件未添加
+ahead = "⇡${count}" # 未推送
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
 # right_format
 
@@ -45,3 +75,9 @@ show_always = true
 ssh_only = false
 format = "@[$localipv4](bold green) "
 disabled = false
+
+# Env
+
+[nodejs]
+format = '[$symbol($version)]($style)'
+version_format = "${major}.x"
