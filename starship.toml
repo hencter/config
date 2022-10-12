@@ -5,13 +5,13 @@
 format = """
 $directory\
 $git_branch\
-$git_status
 $character
 """
 
 right_format = """
+$battery
 $username\
-$localip
+$localip\
 """
 
 # Starship 扫描文件的超时时间（单位：毫秒）。
@@ -25,8 +25,6 @@ style = "blue"
 
 [git_branch]
 symbol = "🌱 "
-truncation_length = 4
-truncation_symbol = ""
 ignore_branches = ["master", "main"]
 
 [character]
