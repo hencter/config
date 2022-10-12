@@ -1,0 +1,10 @@
+# 忽略当前所有文件夹和文件
+/*
+
+!.gitignore
+
+# 自述文件
+!readme.md
+
+# 配置项目请添加再下方
+!starship.toml
