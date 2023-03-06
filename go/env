@@ -1,0 +1,3 @@
+GO111MODULE=on
+GOPATH=/home/hencter/.go
+GOPROXY=https://goproxy.cn,direct
