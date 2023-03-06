@@ -1,8 +1,7 @@
-# .Config/
-
-My dot config 
+# My dot config 
 
 
-## [Starship](https://starship.rs)
 
-- [starship.toml](./starship.toml)
+## Shell
+
+- [Starship](https://starship.rs)
